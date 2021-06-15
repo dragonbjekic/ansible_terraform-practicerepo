@@ -16,6 +16,21 @@
     Two hosts files have been created, both in =ini= and =yml= format,
     containing two groups each (all pointing to one host) which can (and will) be used interchangeably.
     This was done just to demonstrate that both methods work.
+*** Ad-hoc commands
+    All the ad-hoc command examples can be found in the =ansible_ad-hoc.sh= script
+    with multiple choices:
+    1) Touch =~/tempfile= in all hosts (in this case 1), and set mode to 0444 (will elevate privileges to do so).
+    2) Delete =~/tempfile=
+    3) Open port 12345 on =group1= and try to find it (=nmap=)
+    4) Install required plugin
+    5) Try option 3 with elevated privileges and password prompt
+    6) Close port 12345
+    7) Delete the plugin from step 4
+*** Playbooks
+    This repo contains two playbooks which are maneagable with ansible_playbook.sh
+    Together, they will be used to create a user named =maven= on the host,
+    download (if needed) git, a JDK and maven, clone a repository (something I made for an article I was working on),
+    build it, send the status back to us. They are also capable of cleaning up the build, tools and the user.
 ** Notes
 *** Config
     Ansible will search for a file named =ansible.cfg= and only use the
@@ -41,4 +56,9 @@
     with ~inventory=./hosts~ line in =./ansible.cfg=, ansible will automatically
     read from the cfg, and load the hosts. This makes the =-i= flag unnecessairy
     when running ansible from the root dir.
+*** Using modules
+    Ansible warned me when I tried to use the =command= module to =touch ~/.tmp=,
+    advising me to use the =file= module. To quickly skim a module's features,
+    you can visit the official [[https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html][list of all modules]]
+    
 
