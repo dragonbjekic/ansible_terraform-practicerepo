@@ -1,0 +1,14 @@
+---
+-   hosts:
+        group3
+    vars_files:
+    -   newAdminPass.yml
+    tasks:
+    -   name: create an 'Administrator' user
+        become: yes
+        ansible.builtin.user:
+            name: Administrator
+            create_home: no
+            groups: sudo
+            password: "{{ newAdminPassword | string | password_hash('sha512') }}"
+            update_password: on_create

@@ -27,10 +27,12 @@
     6) Close port 12345
     7) Delete the plugin from step 4
 *** Playbooks
-    This repo contains two playbooks which are maneagable with ansible_playbook.sh
-    Together, they will be used to create a user named =maven= on the host,
-    download (if needed) git, a JDK and maven, clone a repository (something I made for an article I was working on),
-    build it, send the status back to us. They are also capable of cleaning up the build, tools and the user.
+    This repo will contain a playbook that will build an Admin user on all hosts,
+    and set the Administrator's password to one gathered from the vault (yml file encrypted
+    with =ansible-vault encrypt= command.)
+    To succesfully run the playbook you must run the following command:
+
+    =ansible-playbook newAdmin.yml -K --ask-vault-pass=
 ** Notes
 *** Config
     Ansible will search for a file named =ansible.cfg= and only use the
