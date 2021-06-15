@@ -1,0 +1,13 @@
+#+TITLE: Ansible&Terraform Practice Repo
+#+AUTHOR: dragon
+
+* Preface
+  All testing done on two =ubuntu-20.04.2-live-server= VMs under the same host.
+  Both VMs have ssh enabled with =ufw= and keys exchanged with =ssh-copy-id=.
+  Both VMs have added the other's IP (found with =ifconfig=) to their =/etc/hosts= file with an alias for easier readability.
+  
+* Ansible
+  Ansible has three directories:
+  - ad_hoc
+  - playbooks
+  - roles
