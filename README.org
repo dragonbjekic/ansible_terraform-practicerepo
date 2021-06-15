@@ -14,7 +14,7 @@
 ** Overview
 *** Hosts
     Two hosts files have been created, both in =ini= and =yml= format,
-    containing two groups each (all pointing to one host) which will (and can) be used interchangeably.
+    containing two groups each (all pointing to one host) which can (and will) be used interchangeably.
     This was done just to demonstrate that both methods work.
 ** Notes
 *** Config
