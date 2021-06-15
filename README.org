@@ -33,7 +33,7 @@
     - =.ini=
       - simple key=value pairs
       - groups can be defined with =[groupname]= placed above key=val pairs
-      - prefered?
+      - preferred?
     - =.y[a]ml= or =.json=
       - must start with =all:=
 
