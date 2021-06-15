@@ -1,0 +1,8 @@
+[all:children]
+group3
+group4
+
+[group3]
+ubuntubox
+[group4]
+ubuntubox

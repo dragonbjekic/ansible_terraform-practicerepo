@@ -2,12 +2,43 @@
 #+AUTHOR: dragon
 
 * Preface
+  This Repo is for future self-reference,
+  containing gathered notes and practice examples,
+  available to anyone who might find it useful in their learning process.
   All testing done on two =ubuntu-20.04.2-live-server= VMs under the same host.
   Both VMs have ssh enabled with =ufw= and keys exchanged with =ssh-copy-id=.
-  Both VMs have added the other's IP (found with =ifconfig=) to their =/etc/hosts= file with an alias for easier readability.
+  Both VMs have added the other's IP (found with =ifconfig=) to their
+  =/etc/hosts= file with an alias for easier readability.
   
 * Ansible
-  Ansible has three directories:
-  - ad_hoc
-  - playbooks
-  - roles
+** Overview
+*** Hosts
+    Two hosts files have been created, both in =ini= and =yml= format,
+    containing two groups each (all pointing to one host) which will (and can) be used interchangeably.
+    This was done just to demonstrate that both methods work.
+** Notes
+*** Config
+    Ansible will search for a file named =ansible.cfg= and only use the
+    first one it finds.
+
+    The order of locations in which it will look for is:
+    - =ANSIBLE_CONFIG= environment variable (if set)
+    - =./ansible.cfg=
+    - =~/.ansible.cfg=
+    - =/etc/ansible/ansible.cfg=
+*** Hosts
+    Hosts are located in files, which are pointed to with the =inventory=
+    parameter in the config file. Inventory can also point to a folder.
+    Uses plugins (defined) to parse hosts files
+    - =.ini=
+      - simple key=value pairs
+      - groups can be defined with =[groupname]= placed above key=val pairs
+      - prefered?
+    - =.y[a]ml= or =.json=
+      - must start with =all:=
+
+    By putting =yml= and =ini= into =./hosts/= folder, and pointing to it
+    with ~inventory=./hosts~ line in =./ansible.cfg=, ansible will automatically
+    read from the cfg, and load the hosts. This makes the =-i= flag unnecessairy
+    when running ansible from the root dir.
+
